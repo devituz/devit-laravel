@@ -68,3 +68,5 @@ echo "Containers have been restarted!"
 echo ""
 echo "✅ Application is now running!"
 echo "🌐 Visit: http://127.0.0.1:8000"
+
+echo "Powered by https://devit.uz"

@@ -58,3 +58,8 @@ echo "Now, starting the containers again..."
 docker-compose up -d
 
 echo "Containers have been restarted!"
+
+# Port haqida xabar
+echo ""
+echo "✅ Application is now running!"
+echo "🌐 Visit: http://127.0.0.1:8000"

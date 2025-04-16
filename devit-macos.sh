@@ -39,7 +39,6 @@ else
     echo "Composer is installed."
 fi
 
-# `.env.example` faylidan `.env` faylga nusxa ko'chirish
 if [ -f ".env.example" ]; then
     echo "Copying .env.example to .env..."
     cp .env.example .env
@@ -49,6 +48,9 @@ fi
 
 echo "Running composer install..."
 composer install
+
+echo "Generating application key..."
+php artisan key:generate
 
 echo "Starting Docker containers..."
 docker-compose up -d --build

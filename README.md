@@ -54,7 +54,7 @@ sudo ./devit-linux.sh
 ```
 Macos
 ```bash
-sudo ./devit-macos.sh 
+./devit-macos.sh 
 ```
 ### 4. Access Your Application
 Once deployment is complete, you can access your application by navigating to the server's IP address or domain in a web browser:

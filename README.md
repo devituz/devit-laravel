@@ -56,4 +56,10 @@ Enjoy the convenience of instant deployment, and start building on top of your a
 
 
 
+## Security Vulnerabilities
 
+If you discover a security vulnerability within Laravel, please send an e-mail to Devit via [devit.uz@gmail.com](mailto:devit.uz@gmail.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://devit.uz/licenses/devit-laravel).

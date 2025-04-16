@@ -2,7 +2,6 @@
 
 echo "Checking if Docker, Docker Compose, PHP, and Composer are installed..."
 
-# Check if Docker is installed (using brew for macOS)
 if ! command -v docker &> /dev/null; then
     echo "Docker is not installed. Installing Docker..."
     brew install --cask docker
@@ -10,7 +9,6 @@ else
     echo "Docker is installed."
 fi
 
-# Check if Docker Compose is installed (using brew for macOS)
 if ! command -v docker-compose &> /dev/null; then
     echo "Docker Compose is not installed. Installing Docker Compose..."
     brew install docker-compose
@@ -18,7 +16,6 @@ else
     echo "Docker Compose is installed."
 fi
 
-# Check if PHP is installed (using brew for macOS)
 if ! command -v php &> /dev/null; then
     echo "PHP is not installed. Installing PHP..."
     brew install php
@@ -26,7 +23,6 @@ else
     echo "PHP is installed."
 fi
 
-# Check if Composer is installed
 if ! command -v composer &> /dev/null; then
     echo "Composer is not installed. Installing Composer..."
     EXPECTED_SIGNATURE=$(wget -qO - https://composer.github.io/installer.sig)
@@ -43,6 +39,10 @@ if ! command -v composer &> /dev/null; then
 else
     echo "Composer is installed."
 fi
+
+echo "Running composer install..."
+composer install
+
 
 echo "Starting Docker containers..."
 

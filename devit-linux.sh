@@ -1,14 +1,8 @@
 #!/bin/bash
 
-echo "Checking if Docker, Docker Compose, PHP, and Composer are installed..."
+echo "Checking if Docker Compose, PHP, and Composer are installed..."
 
-if ! command -v docker &> /dev/null; then
-    echo "Docker is not installed. Installing Docker..."
-    sudo apt-get update
-    sudo apt-get install -y docker.io
-else
-    echo "Docker is installed."
-fi
+# Docker tekshiruv OLIB TASHLANGAN
 
 if ! command -v docker-compose &> /dev/null; then
     echo "Docker Compose is not installed. Installing Docker Compose..."
@@ -35,12 +29,17 @@ if ! command -v composer &> /dev/null; then
         exit 1
     fi
     php composer-setup.php
-    mv composer.phar /usr/local/bin/composer
+    sudo mv composer.phar /usr/local/bin/composer
     rm composer-setup.php
 else
     echo "Composer is installed."
 fi
 
+# composer install
+echo "Running composer install..."
+composer install
+
+# Docker konteynerlar
 echo "Starting Docker containers..."
 
 docker-compose up -d --build

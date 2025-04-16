@@ -24,17 +24,18 @@ else
 fi
 
 if ! command -v composer &> /dev/null; then
-    echo "Composer is not installed."
-
-    # Check if Homebrew is installed
-    if ! command -v brew &> /dev/null; then
-        echo "Homebrew is not installed. Installing Homebrew..."
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        eval "$(/opt/homebrew/bin/brew shellenv)"
+    echo "Composer is not installed. Installing Composer..."
+    EXPECTED_SIGNATURE=$(wget -qO - https://composer.github.io/installer.sig)
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    ACTUAL_SIGNATURE=$(php -r "echo hash_file('sha384', 'composer-setup.php');")
+    if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]; then
+        >&2 echo 'ERROR: Invalid installer signature'
+        rm composer-setup.php
+        exit 1
     fi
-
-    echo "Installing Composer using Homebrew..."
-    brew install composer
+    php composer-setup.php
+    mv composer.phar /usr/local/bin/composer
+    rm composer-setup.php
 else
     echo "Composer is installed."
 fi
@@ -42,7 +43,9 @@ fi
 echo "Running composer install..."
 composer install
 
+
 echo "Starting Docker containers..."
+
 docker-compose up -d --build
 
 echo "Waiting for containers to start..."
@@ -60,8 +63,10 @@ docker-compose up -d
 
 echo "Containers have been restarted!"
 
+
+
 echo ""
 echo "✅ Application is now running!"
 echo "🌐 Visit: http://127.0.0.1:8000"
-echo ""
-echo "🚀 Powered by https://devit.uz"
+
+echo "Powered by https://devit.uz"

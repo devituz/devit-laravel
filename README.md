@@ -26,35 +26,34 @@ With **Devituz**, you can deploy your Laravel apps in seconds, not hours.
 ## 🚀 Getting Started
 
 ### 1. Clone the Project
-
 Clone the repository to your local machine and navigate into the project folder:
 
 ```bash
 git clone https://github.com/devituz/devit-laravel.git
 cd devit-laravel
+```
 
-
-2. Set Permissions
+### 2. Set Permissions
 Give execute permissions to the devit.sh script so it can be run. This step ensures the script is executable:
 
-bash
-Copy
-Edit
+```bash
 chmod +x devit.sh
-3. Run the Setup Script
+```
+
+### 3. Run the Setup Script
 Execute the setup script to start the deployment process. Devituz ensures that deploying your Laravel application is quick and easy. By running the following command, you will deploy your app to the server instantly:
 
-bash
-Copy
-Edit
+```bash
 sudo ./devit.sh
-The script will automatically configure your environment and deploy your Laravel application with a single command. Once it's done, your app will be live on the server.
-
-4. Access Your Application
+```
+### 4. Access Your Application
 Once deployment is complete, you can access your application by navigating to the server's IP address or domain in a web browser:
 
-bash
-Copy
-Edit
-http://your-server-ip-or-domain
+```bash
+http://127.0.0.1:4000/
+```
 Enjoy the convenience of instant deployment, and start building on top of your app!
+
+
+
+

@@ -37,7 +37,7 @@ cd devit-laravel
 ```
 
 ### 2. Set Permissions
-Give execute permissions to the devit-linux.sh, .\devit-windows.ps1, devit-macos.sh script so it can be run. This step ensures the script is executable:
+Give execute permissions to the devit-linux.sh, .devit-windows.ps1, devit-macos.sh script so it can be run. This step ensures the script is executable:
 
 Linux
 ```bash

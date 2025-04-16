@@ -10,7 +10,7 @@ With **Devituz**, you can deploy your Laravel apps in seconds, not hours.
   **Devituz** eliminates the long setup time and streamlines your deployment process, allowing you to push your app to the server in record time. Whether it's a small update or a fresh deployment, the entire process takes just minutes!
 
 - 🔧 **Customizable Setup**  
-  Devituz includes a prebuilt `devit.sh` script that automates environment setup for you.
+  Devituz includes a prebuilt `devit-linux.sh, .\devit-windows.ps1, devit-macos.sh ` script that automates environment setup for you.
 
 - 📦 **Modern Docker Support**  
   Works seamlessly with custom Docker environments — no need for Sail.
@@ -34,7 +34,7 @@ cd devit-laravel
 ```
 
 ### 2. Set Permissions
-Give execute permissions to the devit-linux.sh or devit-macos.sh script so it can be run. This step ensures the script is executable:
+Give execute permissions to the devit-linux.sh, .\devit-windows.ps1, devit-macos.sh script so it can be run. This step ensures the script is executable:
 
 Linux
 ```bash
@@ -43,6 +43,10 @@ chmod +x devit-linux.sh
 Macos
 ```bash
 chmod +x devit-macos.sh
+```
+Windows
+```bash
+Set-ExecutionPolicy RemoteSigned
 ```
 
 ### 3. Run the Setup Script
@@ -55,6 +59,10 @@ sudo ./devit-linux.sh
 Macos
 ```bash
 ./devit-macos.sh 
+```
+Windows
+```bash
+.\devit-windows.ps1
 ```
 ### 4. Access Your Application
 Once deployment is complete, you can access your application by navigating to the server's IP address or domain in a web browser:

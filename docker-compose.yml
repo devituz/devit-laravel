@@ -26,7 +26,7 @@ services:
         image: nginx:alpine
         container_name: devituz-nginx
         ports:
-            - '${APP_PORT:-4000}:80'
+            - '${APP_PORT:-8000}:80'
             - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
         volumes:
             - .:/var/www/html

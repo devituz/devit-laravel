@@ -29,7 +29,7 @@ With **Devituz**, you can deploy your Laravel apps in seconds, not hours.
 Clone the repository to your local machine and navigate into the project folder:
 
 ```bash
-git clone https://github.com/devituz/devit-laravel.git
+git@github.com:devituz/devit-laravel.git
 cd devit-laravel
 ```
 

@@ -3,6 +3,9 @@
 Welcome to **Devit-laravel** — the ultimate platform for rapid Laravel application deployment.  
 With **Devit-laravel**, you can deploy your Laravel apps in seconds, not hours.
 
+Automatic Setup with Docker
+This project includes an automatic setup for Laravel with Redis, PostgreSQL, Nginx, and other services. Follow these steps to quickly get your application up and running with Docker.
+
 ## 🌟 Features
 
 - ⚡ **Blazing Fast Deployment**  

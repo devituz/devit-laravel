@@ -36,15 +36,25 @@ cd devit-laravel
 ### 2. Set Permissions
 Give execute permissions to the devit.sh script so it can be run. This step ensures the script is executable:
 
+Linux
 ```bash
-chmod +x devit.sh
+chmod +x devit-linux.sh
+```
+Macos
+```bash
+chmod +x devit-macos.sh
 ```
 
 ### 3. Run the Setup Script
 Execute the setup script to start the deployment process. Devituz ensures that deploying your Laravel application is quick and easy. By running the following command, you will deploy your app to the server instantly:
 
+Linux
 ```bash
-sudo ./devit.sh
+sudo ./devit-linux.sh 
+```
+Macos
+```bash
+sudo ./devit-macos.sh 
 ```
 ### 4. Access Your Application
 Once deployment is complete, you can access your application by navigating to the server's IP address or domain in a web browser:

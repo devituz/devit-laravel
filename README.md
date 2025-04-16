@@ -1,22 +1,22 @@
-# 🚀 Devituz - Powerful Laravel Deployment Platform
+# 🚀 Devit-laravel - Powerful Laravel Deployment Platform
 
-Welcome to **Devituz** — the ultimate platform for rapid Laravel application deployment.  
-With **Devituz**, you can deploy your Laravel apps in seconds, not hours.
+Welcome to **Devit-laravel** — the ultimate platform for rapid Laravel application deployment.  
+With **Devit-laravel**, you can deploy your Laravel apps in seconds, not hours.
 
 ## 🌟 Features
 
 - ⚡ **Blazing Fast Deployment**  
   Deploy your Laravel application quickly with minimal setup — no manual configuration required.  
-  **Devituz** eliminates the long setup time and streamlines your deployment process, allowing you to push your app to the server in record time. Whether it's a small update or a fresh deployment, the entire process takes just minutes!
+  **Devit-laravel** eliminates the long setup time and streamlines your deployment process, allowing you to push your app to the server in record time. Whether it's a small update or a fresh deployment, the entire process takes just minutes!
 
 - 🔧 **Customizable Setup**  
-  Devituz includes a prebuilt `devit-linux.sh, .\devit-windows.ps1, devit-macos.sh ` script that automates environment setup for you.
+  Devit-laravel includes a prebuilt `devit-linux.sh, .\devit-windows.ps1, devit-macos.sh ` script that automates environment setup for you.
 
 - 📦 **Modern Docker Support**  
   Works seamlessly with custom Docker environments — no need for Sail.
 
 - 🛡️ **Secure by Default**  
-  Devituz follows the best security practices to ensure your environment and app are safe.
+  Devit-laravel follows the best security practices to ensure your environment and app are safe.
 
 - 🎨 **Beautiful Landing Page**  
   A clean, animated UI greets you after deployment, giving your users a great first impression.
@@ -76,8 +76,8 @@ Enjoy the convenience of instant deployment, and start building on top of your a
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Devit via [devit.uz@gmail.com](mailto:devit.uz@gmail.com). All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within Laravel, please send an e-mail to Devit via [shohbozbek.uz24@gmail.com](mailto:shohbozbek.uz24@gmail.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://devit.uz/licenses/devit-laravel).
+The Devit-laravel framework is open-sourced software licensed under the [MIT license](https://devit.uz/licenses/devit-laravel).

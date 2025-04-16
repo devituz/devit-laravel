@@ -39,6 +39,14 @@ else
     echo "Composer is installed."
 fi
 
+# `.env.example` faylidan `.env` faylga nusxa ko'chirish
+if [ -f ".env.example" ]; then
+    echo "Copying .env.example to .env..."
+    cp .env.example .env
+else
+    echo "No .env.example file found. Skipping .env file creation."
+fi
+
 echo "Running composer install..."
 composer install
 

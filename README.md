@@ -29,12 +29,12 @@ With **Devituz**, you can deploy your Laravel apps in seconds, not hours.
 Clone the repository to your local machine and navigate into the project folder:
 
 ```bash
-git@github.com:devituz/devit-laravel.git
+git clone git@github.com:devituz/devit-laravel.git
 cd devit-laravel
 ```
 
 ### 2. Set Permissions
-Give execute permissions to the devit.sh script so it can be run. This step ensures the script is executable:
+Give execute permissions to the devit-linux.sh or devit-macos.sh script so it can be run. This step ensures the script is executable:
 
 Linux
 ```bash
@@ -60,7 +60,7 @@ sudo ./devit-macos.sh
 Once deployment is complete, you can access your application by navigating to the server's IP address or domain in a web browser:
 
 ```bash
-http://127.0.0.1:4000/
+http://127.0.0.1:8000/
 ```
 Enjoy the convenience of instant deployment, and start building on top of your app!
 

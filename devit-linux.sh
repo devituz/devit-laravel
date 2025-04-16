@@ -35,6 +35,14 @@ else
     echo "Composer is installed."
 fi
 
+# `.env.example` dan `.env` faylini nusxa ko'chirish
+if [ -f ".env.example" ]; then
+    echo "Copying .env.example to .env..."
+    cp .env.example .env
+else
+    echo "No .env.example file found. Skipping .env file creation."
+fi
+
 # composer install
 echo "Running composer install..."
 composer install
@@ -64,4 +72,3 @@ echo "✅ Application is now running!"
 echo "🌐 Visit: http://127.0.0.1:8000"
 
 echo "Powered by https://devit.uz"
-

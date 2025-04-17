@@ -21,6 +21,7 @@ services:
         depends_on:
             - pgsql
             - redis
+        restart: unless-stopped
 
     nginx:
         image: nginx:alpine
@@ -36,6 +37,7 @@ services:
             - app
         networks:
             - devituz
+        restart: unless-stopped
 
     queue:
         build:
@@ -53,6 +55,7 @@ services:
         depends_on:
             - pgsql
             - redis
+        restart: unless-stopped
 
     pgsql:
         image: postgres:17
@@ -68,6 +71,7 @@ services:
             - pgsql-data:/var/lib/postgresql/data
         networks:
             - devituz
+        restart: unless-stopped
 
     redis:
         image: redis:alpine
@@ -80,6 +84,7 @@ services:
         command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
         networks:
             - devituz
+        restart: unless-stopped
 
 
     migration:
@@ -101,6 +106,7 @@ services:
             APP_ENV: local
         volumes:
             - .:/var/www/html
+        restart: unless-stopped
 
 
 volumes:

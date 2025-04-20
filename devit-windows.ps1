@@ -3,8 +3,8 @@ Write-Host "Checking if Docker, Docker Compose, PHP, and Composer are installed.
 $dockerInstalled = Get-Command docker -ErrorAction SilentlyContinue
 if (-not $dockerInstalled) {
     Write-Host "Docker is not installed. Installing Docker..."
-    Invoke-WebRequest -Uri https://desktop.docker.com/mac/stable/Docker.dmg -OutFile "$env:USERPROFILE\Downloads\Docker.dmg"
-    Start-Process -FilePath "$env:USERPROFILE\Downloads\Docker.dmg"
+    Invoke-WebRequest -Uri https://desktop.docker.com/win/stable/Docker%20Desktop%20Installer.exe -OutFile "$env:USERPROFILE\Downloads\DockerInstaller.exe"
+    Start-Process -FilePath "$env:USERPROFILE\Downloads\DockerInstaller.exe"
 } else {
     Write-Host "Docker is installed."
 }
@@ -54,7 +54,6 @@ Write-Host "Starting Docker containers..."
 docker-compose up -d --build
 
 Write-Host "Waiting for containers to start..."
-
 do {
     $containersStatus = docker-compose ps
     Start-Sleep -Seconds 1
@@ -63,12 +62,13 @@ do {
 Write-Host "Containers are up. Waiting 3 seconds..."
 Start-Sleep -Seconds 3
 
-Write-Host "Now, starting the containers again..."
+Write-Host "Now, restarting the containers again..."
 docker-compose up -d
 
 Write-Host "Containers have been restarted!"
 
+Write-Host ""
 Write-Host "✅ Application is now running!"
 Write-Host "🌐 Visit: http://127.0.0.1:8000"
-
-Write-Host "Powered by https://devit.uz"
+Write-Host ""
+Write-Host "🚀 Powered by https://devit.uz"

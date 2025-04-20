@@ -26,7 +26,6 @@ fi
 if ! command -v composer &> /dev/null; then
     echo "Composer is not installed."
 
-    # Check if Homebrew is installed
     if ! command -v brew &> /dev/null; then
         echo "Homebrew is not installed. Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -39,6 +38,9 @@ else
     echo "Composer is installed."
 fi
 
+echo "Setting permissions to 777 for project directory files..."
+sudo chmod -R 777 /home/devit/Work/laravel/devit-laravel
+
 if [ -f ".env.example" ]; then
     echo "Copying .env.example to .env..."
     cp .env.example .env
@@ -48,15 +50,26 @@ fi
 
 echo "Running composer install..."
 composer install
+if [ $? -ne 0 ]; then
+    echo "Composer install failed. Exiting."
+    exit 1
+fi
 
 echo "Generating application key..."
 php artisan key:generate
+if [ $? -ne 0 ]; then
+    echo "Failed to generate application key. Exiting."
+    exit 1
+fi
 
 echo "Starting Docker containers..."
 docker-compose up -d --build
+if [ $? -ne 0 ]; then
+    echo "Failed to start Docker containers. Exiting."
+    exit 1
+fi
 
 echo "Waiting for containers to start..."
-
 while ! docker-compose ps | grep -q 'Up'; do
     echo "Containers are not up yet. Waiting 1 second..."
     sleep 1

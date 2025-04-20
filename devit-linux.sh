@@ -3,13 +3,19 @@
 echo "Checking if Docker, Docker Compose, PHP, and Composer are installed..."
 
 echo "Setting permissions to 777 for project directory files..."
-sudo chmod -R 777 /home/devit/Work/laravel/DynamicCrud
+sudo chmod -R 777 /home/devit/Work/laravel/devit-laravel
 
 
 if ! command -v docker &> /dev/null; then
     echo "Docker is not installed. Installing Docker..."
+
     sudo apt-get update
-    sudo apt-get install -y docker.io
+    sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install -y docker-ce=5:26.1.5~3-0~ubuntu-focal docker-ce-cli=5:26.1.5~3-0~ubuntu-focal containerd.io
+
     if [ $? -ne 0 ]; then
         echo "Failed to install Docker. Exiting."
         exit 1
@@ -20,7 +26,10 @@ fi
 
 if ! command -v docker-compose &> /dev/null; then
     echo "Docker Compose is not installed. Installing Docker Compose..."
-    sudo apt-get install -y docker-compose
+
+    curl -SL https://github.com/docker/compose/releases/download/v2.27.1/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+
     if [ $? -ne 0 ]; then
         echo "Failed to install Docker Compose. Exiting."
         exit 1
@@ -29,8 +38,26 @@ else
     echo "Docker Compose is installed."
 fi
 
+if ! command -v php &> /dev/null; then
+    echo "PHP is not installed. Installing PHP 8.3.20..."
+
+    sudo apt-get update
+    sudo apt-get install -y software-properties-common
+    sudo add-apt-repository ppa:ondrej/php
+    sudo apt-get update
+    sudo apt-get install -y php8.3 php8.3-cli php8.3-common php8.3-mbstring php8.3-xml php8.3-zip php8.3-curl
+
+    if [ $? -ne 0 ]; then
+        echo "Failed to install PHP. Exiting."
+        exit 1
+    fi
+else
+    echo "PHP is installed."
+fi
+
 if ! command -v composer &> /dev/null; then
-    echo "Composer is not installed. Installing Composer..."
+    echo "Composer is not installed. Installing Composer 2.8.8..."
+
     EXPECTED_SIGNATURE=$(wget -qO - https://composer.github.io/installer.sig)
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     ACTUAL_SIGNATURE=$(php -r "echo hash_file('sha384', 'composer-setup.php');")
@@ -39,7 +66,7 @@ if ! command -v composer &> /dev/null; then
         rm composer-setup.php
         exit 1
     fi
-    php composer-setup.php
+    php composer-setup.php --version=2.8.8
     if [ $? -ne 0 ]; then
         echo "Failed to install Composer. Exiting."
         exit 1
@@ -79,7 +106,6 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Waiting for containers to start..."
-
 while ! docker-compose ps | grep -q 'Up'; do
     echo "Containers are not up yet. Waiting 1 second..."
     sleep 1
@@ -97,3 +123,5 @@ echo ""
 echo "✅ Application is now running!"
 echo "🌐 Visit: http://127.0.0.1:8000"
 echo "Powered by https://devit.uz"
+
+

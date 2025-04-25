@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ env('APP_NAME') }}</title>
-    <link rel="stylesheet" href="{{asset('assets/css/devituz.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('assets/css/devituz.css')}}">
 
 </head>
 <body>
@@ -20,11 +20,11 @@
     </section>
 
     <footer>
-        <p><strong>Deployment has never been faster!</strong> Enjoy faster server setup and smooth performance with Devituz, giving you more time to build your dream app.</p>
+        <p><strong>Deployment has never been faster!</strong> Enjoy faster server setup and smooth performance with  <a href="https://github.com/devituz/devit-laravel">Devituz github</a>, giving you more time to build your dream app.</p>
         <p>Powered by <a href="http://devit.uz/">Devituz</a></p>
     </footer>
 </div>
 
-<script src="{{asset('assets/js/devituz.js')}}"></script>
+<script src="{{secure_asset('assets/js/devituz.js')}}"></script>
 </body>
 </html>

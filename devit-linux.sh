@@ -97,7 +97,8 @@ if [ $? -ne 0 ]; then
     echo "Failed to generate application key. Exiting."
     exit 1
 fi
-
+sudo chmod -R 775 storage
+sudo chown -R www-data:www-data storage
 echo "Starting Docker containers..."
 docker-compose up -d --build
 if [ $? -ne 0 ]; then
@@ -119,9 +120,12 @@ docker-compose up -d
 
 echo "Containers have been restarted!"
 
+PORT=$(grep -oP '^APP_PORT=\K.*' .env)
+
+
 echo ""
 echo "✅ Application is now running!"
-echo "🌐 Visit: http://127.0.0.1:8000"
+echo "🌐 Visit: http://127.0.0.1:$PORT"
 echo "Powered by https://devit.uz"
 
 
